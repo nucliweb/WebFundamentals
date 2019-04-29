@@ -13,50 +13,51 @@ book_path: /web/fundamentals/_book.yaml
 
 ## Introducción
 
-### ¿Qué hace que una aplicación web, una aplicación web progresiva?
+### ¿Qué hace de una aplicación web, una aplicación web progresiva?
 
-Las aplicaciones web progresivas brindan una experiencia instalable, similar a una aplicación en computadoras de escritorio y móviles, que se crean y entregan directamente a través de la web. Son aplicaciones web que son rápidas y confiables. Y lo más importante, son aplicaciones web que funcionan en cualquier navegador. Si está creando una aplicación web hoy, ya está en el camino hacia la creación de una aplicación web progresiva.
+Las aplicaciones web progresivas ofrecen una experiencia instalable, similar a una aplicación en computadoras de escritorio y móviles, que se crean y entregan directamente a través de la web. Son aplicaciones web que son rápidas y fiables. Y lo más importante, son aplicaciones web que funcionan en cualquier navegador. Si está creando una aplicación web hoy, ya está en el camino hacia la creación de una aplicación web progresiva.
 
-#### rápido y confiable
+#### Rápido y fiable
 
-Cada experiencia web debe ser rápida, y esto es especialmente cierto para las aplicaciones web progresivas. Rápido se refiere al tiempo que se tarda en obtener contenido significativo en la pantalla y brinda una experiencia interactiva en menos de 5 segundos.
+Cada experiencia web debe ser rápida, y esto es especialmente cierto para las aplicaciones web progresivas. Rápido se refiere al tiempo que se tarda en obtener contenido significativo en la pantalla y ofrece una experiencia interactiva en menos de 5 segundos.
 
-Y, debe ser __reliablemente rápido__. Es difícil enfatizar lo suficiente el rendimiento confiable. Piénsalo de esta manera: la primera carga de una aplicación nativa es frustrante. Está cerrado por una tienda de aplicaciones y una descarga enorme, pero una vez que llega a un punto donde se instala la aplicación, ese costo inicial se amortiza en todos los inicios de la aplicación, y ninguno de esos inicios tiene un retraso variable. Cada inicio de aplicación es tan rápido como el último, sin variación. Una aplicación web progresiva debe ofrecer este rendimiento confiable que los usuarios esperan de cualquier experiencia instalada.
+Y, debe ser __fiablemente rápido__. Es difícil enfatizar lo suficiente el rendimiento confiable. Piénsalo de esta manera: la primera carga de una aplicación nativa es frustrante. Es sólo accesible desde una tienda de aplicaciones y una enorme descarga, pero una vez instalada la aplicación, ese coste inicial se amortiza en todos los inicios de la aplicación, y ninguno de esos inicios tiene un retraso variable. Cada inicio de aplicación es tan rápido como el anterior, sin variación. Una aplicación web progresiva debe ofrecer este rendimiento confiable que los usuarios esperan de cualquier experiencia de una aplicación instalada.
 
 #### Instalable
 
-Las aplicaciones web progresivas pueden ejecutarse en una pestaña del navegador, pero también son instalables. Marcar un sitio simplemente agrega un acceso directo, pero una aplicación web progresiva instalada se ve y se comporta como todas las demás aplicaciones instaladas. Se inicia desde el mismo lugar que se lanzan otras aplicaciones. Puede controlar la experiencia de lanzamiento, incluida una pantalla de inicio personalizada, iconos y más. Se ejecuta como una aplicación, en una ventana de aplicación sin una barra de direcciones u otra interfaz de usuario del navegador. Y como todas las demás aplicaciones instaladas, es una aplicación de nivel superior en el conmutador de tareas.
+Las aplicaciones web progresivas pueden ejecutarse en una pestaña del navegador, pero también son instalables. Añadir a favoritos un sitio simplemente agrega un acceso directo, pero una aplicación web progresiva instalada se ve y se comporta como todas las demás aplicaciones instaladas. Se inicia desde el mismo lugar que se lanzan otras aplicaciones. Puede controlar la experiencia de lanzamiento, incluida una pantalla de inicio personalizada, iconos y más. Se ejecuta como una aplicación, en una ventana de aplicación sin una barra de direcciones u otra interfaz de usuario del navegador. Y como todas las demás aplicaciones instaladas, es una aplicación de nivel superior en el gestor de tareas.
 
-Recuerde, es fundamental que un PWA instalable sea rápido y confiable. Los usuarios que instalan un PWA esperan que sus aplicaciones funcionen, sin importar en qué tipo de conexión de red estén conectadas. Es una expectativa de referencia que todas las aplicaciones instaladas deben cumplir.
+Recuerde, es fundamental que un PWA instalable sea rápida y fiable. Los usuarios que instalan un PWA esperan que sus aplicaciones funcionen, sin importar en qué tipo de conexión de red estén conectadas. Es una expectativa de referencia que todas las aplicaciones instaladas deben cumplir.
 
-#### Mobile &amp; Desktop
+#### Móvil & Escritorio
 
-Mediante el uso de técnicas de diseño receptivo, Progressive Web Apps funciona tanto en el escritorio __ móvil como en el de escritorio, utilizando una base de código única entre plataformas. Si está considerando escribir una aplicación nativa, eche un vistazo a los beneficios que ofrece una PWA.
+Mediante el uso de técnicas de diseño receptivo, Progressive Web Apps funciona tanto en el móvil como en escritorio, utilizando una base de código única entre plataformas. Si está considerando escribir una aplicación nativa, eche un vistazo a los beneficios que ofrece una PWA.
 
 ### Qué construirás
 
-En este código, vas a construir una aplicación web del tiempo utilizando las técnicas de la aplicación web progresiva. Su aplicación:
+En este codelab, vas a construir una aplicación web del tiempo utilizando las técnicas de la aplicación web progresiva. Su aplicación será:
 
 * Usa diseño responsivo, por lo que funciona en computadoras de escritorio o móviles.
-* Sea rápido, use un trabajador del servicio para guardar en antememoria los recursos de la aplicación (HTML, CSS, JavaScript, imágenes) necesarios para ejecutar y almacenar en caché los datos meteorológicos en tiempo de ejecución para mejorar el rendimiento.
+* Sea rápido, use un [Service Worker](https://developers.google.com/web/fundamentals/primers/service-workers/?hl=es) para guardar en [precaché](https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker) los recursos de la aplicación (HTML, CSS, JavaScript, imágenes) necesarios para ejecutar y almacenar en caché los datos meteorológicos en tiempo de ejecución para mejorar el rendimiento.
 * Sea instalable, utilizando un manifiesto de aplicación web y el evento `beforeinstallprompt` para notificar al usuario que es instalable.
 
 ![95fe6f7fbeee5bb1.png](img/95fe6f7fbeee5bb1.png)
 
-Warning: para simplificar este código y explicar los fundamentos de proporcionar una experiencia fuera de línea, estamos usando JavaScript de vainilla. En una aplicación de producción, le recomendamos que utilice herramientas como [Workbox](/web/tools/workbox/) para construir su trabajador de servicio. Elimina muchos de los bordes afilados y las esquinas oscuras con las que puede encontrarse.
+Advertencia: Para simplificar este código y explicar los fundamentos de proporcionar una experiencia offline (sin conexión), estamos usando vanilla JavaScript (sin librerías, ni frameworks). En una aplicación de producción, le recomendamos que utilice herramientas como [Workbox](/web/tools/workbox/) para construir su Service Worker. Elimina muchos de los problemas y las rincones oscuros con los que puede encontrarse.
 
 ### Lo que aprenderás
 
 * Cómo crear y agregar un manifiesto de aplicación web.
-* Cómo proporcionar una experiencia fuera de línea simple
-* Cómo proporcionar una experiencia fuera de línea completa
-* Como hacer instalable tu aplicación
+* Cómo proporcionar una experiencia offline simple.
+* Cómo proporcionar una experiencia offline completa.
+* Cómo hacer instalable tu aplicación.
 
 Este código está enfocado en aplicaciones web progresivas. Los conceptos y los bloques de código no relevantes se pasan por alto y se proporcionan para que usted simplemente copie y pegue.
 
 ### Lo que necesitarás
 
-* Una versión reciente de los PWA de Chrome (74 o posterior) son solo aplicaciones web y funcionan en todos los navegadores, pero usaremos algunas funciones de Chrome DevTools para comprender mejor lo que está sucediendo en el nivel del navegador y usarlo para prueba la experiencia de instalación.
+* Una versión reciente de Chrome (74 o posterior)
+Las PWAs son solo aplicaciones web y funcionan en todos los navegadores, pero usaremos algunas funciones de Chrome DevTools para comprender mejor lo que está sucediendo a nivel del navegador y usarlo para poder proba la experiencia de instalación.
 * Conocimiento de HTML, CSS, JavaScript y [Chrome DevTools](https://developer.chrome.com/devtools) .
 
 ## Preparándose
@@ -65,56 +66,62 @@ Este código está enfocado en aplicaciones web progresivas. Los conceptos y los
 
 Nuestros datos meteorológicos provienen de [Dark Sky API](https://darksky.net/dev) . Para poder usarlo, deberás solicitar una clave API. Es fácil de usar y gratis para proyectos no comerciales.
 
-[Register for API Key](https://darksky.net/dev/register)
+[Registrarse para la clave API](https://darksky.net/dev/register)
 
-Note: Aún puedes completar este código de código sin una clave de API de Dark Sky. Si nuestro servidor no puede obtener datos reales de la API de Dark Sky, devolverá datos falsos en su lugar.
+Nota: Aún puedes completar este codelab sin una clave API de Dark Sky. Si nuestro servidor no puede obtener datos reales de la API de Dark Sky, devolverá datos falsos (simulados) en su lugar.
 
 #### Verifica que tu clave API esté funcionando correctamente
 
-Para probar que su clave de API funciona correctamente, realice una solicitud HTTP a la API de DarkSky. Actualice la URL a continuación para reemplazar `DARKSKY_API_KEY` con su clave API. Si todo funciona, debería ver el último pronóstico del tiempo para la ciudad de Nueva York.
+Para probar que su clave de API funciona correctamente, realice una solicitud HTTP a la API de DarkSky. Actualice la URL que hay a continuación reemplazando `DARKSKY_API_KEY` con su clave API. Si todo funciona, debería ver el último pronóstico del tiempo para la ciudad de Nueva York.
 
 `https://api.darksky.net/forecast/DARKSKY_API_KEY/40.7720232,-73.9732319`
 
 ### Consigue el código
 
-Hemos puesto todo lo que necesitas para este proyecto en un repositorio de Git. Para comenzar, deberás tomar el código y abrirlo en tu entorno de desarrollo favorito. Para este código, recomendamos utilizar Glitch.
+Hemos puesto todo lo que necesitas para este proyecto en un repositorio de Git. Para comenzar, deberás descargar el código y abrirlo en tu entorno de desarrollo favorito. Para este codelab, recomendamos utilizar Glitch.
 
 #### Muy recomendable: usa Glitch para importar el repositorio
 
-Usar Glitch es el método recomendado para trabajar a través de este código.
+Usar Glitch es el método recomendado para trabajar a través de este codelab.
 
 1. Abra una nueva pestaña del navegador y vaya a [https://glitch.com](https://glitch.com) .
 2. Si no tienes una cuenta, deberás registrarte.
 3. Haga clic en __New Project__, luego __Clone from Git Repo .__
-4. Clone __https: //github.com/googlecodelabs/your-first-pwapp.git__ y haga clic en Aceptar.
-5. Una vez que se haya cargado el repositorio, edite el archivo `.env` y actualícelo con su clave de API DarkSky.
-6. Haga clic en el botón __Mostrar Live__ para ver el PWA en acción.
+4. Clone __https://github.com/googlecodelabs/your-first-pwapp.git__ y haga clic en Ok.
+5. Una vez que se haya cargado el repositorio, edite el archivo `.env` y actualícelo con su clave API de DarkSky.
+6. Haga clic en el botón __Show Live__ para ver el PWA en acción.
 
-Alternativa de #### : Descargar código y trabajar localmente
+#### Alternativa: Descargar código y trabajar localmente
 
-Si desea descargar el código y trabajar de manera local, deberá tener una versión reciente de Node y la configuración del editor de códigos y listo para usar.
+Si desea descargar el código y trabajar de manera local, deberá tener una versión reciente de [Node](https://nodejs.org) y la configuración del editor de códigos y listo para usar.
 
-Caution: si trabaja localmente, algunas de las auditorías de Lighthouse no se aprobarán y es posible que la instalación no esté disponible porque el servidor local no sirve el contenido en un contexto seguro.
+Precaución: Si trabaja localmente, algunas de las auditorías de Lighthouse no se aprobarán y es posible que la instalación no esté disponible porque el servidor local no sirve el contenido en un contexto seguro.
 
-[Download source code](https://github.com/googlecodelabs/your-first-pwapp/archive/master.zip)
+[Descargar el código fuente](https://github.com/googlecodelabs/your-first-pwapp/archive/master.zip)
 
-1. Desembale el archivo zip descargado.
+1. Descomprima el archivo zip descargado y entre en la carpeta.
 2. Ejecute `npm install` para instalar las dependencias necesarias para ejecutar el servidor.
 3. Edite `server.js` y configure la clave de la API de DarkSky.
 4. Ejecute `node server.js` para iniciar el servidor en el puerto 8000.
-5. Abra una pestaña del navegador en [http://localhost:8000](http://localhost:8000)
+5. Abra una pestaña del navegador y acceda a [http://localhost:8000](http://localhost:8000)
 
 ## Establecer una línea de base
 
 ### ¿Cuál es nuestro punto de partida?
 
-Nuestro punto de partida es una aplicación meteorológica básica diseñada para este código. El código se ha simplificado demasiado para mostrar los conceptos en este código de código y tiene poco manejo de errores. Si elige reutilizar cualquiera de este código en una aplicación de producción, asegúrese de manejar cualquier error y probar completamente todo el código.
+Nuestro punto de partida es una aplicación meteorológica básica diseñada para este codelab. El código se ha simplificado mucho para mostrar los conceptos en este codelab y tiene poco manejo de errores. Si elige reutilizar cualquier parte de este código en una aplicación de producción, asegúrese de manejar cualquier error y probar completamente todo el código.
 
-Algunas cosas para probar ...
+Algunas cosas para probar...
 
-1. Agrega una nueva ciudad con el botón más azul en la esquina inferior derecha. 2. Actualice los datos con el botón de actualización en la esquina superior derecha. 3. Borre una ciudad usando la x en la parte superior derecha de cada tarjeta de ciudad. 4. Vea cómo funciona en el escritorio y en el móvil. 5. Mira lo que pasa cuando te desconectas. 6. Usando el panel de la Red de Chrome, vea qué sucede cuando la red se limita a Slow 3G. 7. Agregue un retraso al servidor de pronóstico cambiando `FORECAST_DELAY` en `server.js`
+1. Agregar una nueva ciudad con el botón azul más, en la esquina inferior derecha.
+2. Actualice los datos con el botón de actualización en la esquina superior derecha.
+3. Borre una ciudad usando la "x" en la parte superior derecha de cada tarjeta de ciudad.
+4. Vea cómo funciona en el escritorio y en el móvil.
+5. Mire lo que pasa cuando se desconectas.
+6. Usando el panel de Red de Chrome, vea qué sucede cuando la red se limita a 3G Lento.
+7. Agregue un retraso al servidor de pronóstico cambiando el valor de `FORECAST_DELAY` a `server.js`
 
-### Auditoría con Faro
+### Auditoría con Lighthouse
 
 [Lighthouse](/web/tools/lighthouse/#devtools) es una herramienta fácil de usar para ayudar a mejorar la calidad de sus sitios y páginas. Cuenta con auditorías de rendimiento, accesibilidad, aplicaciones web progresivas y más. Cada auditoría tiene un documento de referencia que explica por qué la auditoría es importante, así como la forma de solucionarla.
 
@@ -122,15 +129,15 @@ Algunas cosas para probar ...
 
 Usaremos Lighthouse para auditar nuestra aplicación Weather y verificar los cambios que hemos realizado.
 
-Note: Puede ejecutar Lighthouse en Chrome DevTools, desde la línea de comandos o como un módulo de nodo. Considere [adding Lighthouse](https://github.com/GoogleChromeLabs/lighthousebot) en su proceso de compilación para asegurarse de que su aplicación web no retroceda.
+Nota: Puede ejecutar Lighthouse en Chrome DevTools, desde la línea de comandos o como un módulo de Node. Considere [añadir Lighthouse](https://github.com/GoogleChromeLabs/lighthousebot) en su proceso de compilación para asegurarse de que su aplicación web no retroceda.
 
-### Vamos a correr el faro
+### Vamos a ejecutar Lighthouse
 
 1. Abra su proyecto en una nueva pestaña.
 2. Abra Chrome DevTools y cambie a la pestaña __Audits__, DevTools muestra una lista de categorías de auditoría, déjelas todas habilitadas.
 3. Haga clic en __Ejecutar auditorías__, después de 60-90 segundos, Lighthouse le da un informe en la página.
 
-### La auditoría progresiva de la aplicación web
+### La auditoría de la aplicación web progresiva
 
 Nos centraremos en los resultados de la auditoría de la aplicación web progresiva.
 
@@ -138,12 +145,12 @@ Nos centraremos en los resultados de la auditoría de la aplicación web progres
 
 Y hay mucho rojo para centrarse en:
 
-* __❗FRACASADO:__ La página actual no responde con un 200 cuando está desconectado.
-* __❗FRACASADO:__ `start_url` no responde con un 200 cuando está desconectado.
-* __❗FRACASADO:__ No registra un trabajador de servicio que controla la página y `start_url.`
-* __❗FRACASADO:__ El manifiesto de la aplicación web no cumple con los requisitos de instalación.
-* __❗FRACASADO:__ No está configurado para una pantalla de inicio personalizada.
-* __❗FRACASADO:__ No establece un color de tema de la barra de direcciones.
+* __❗FALLIDO:__ La página actual no responde con un 200 cuando está desconectado.
+* __❗FALLIDO:__ `start_url` no responde con un 200 cuando está desconectado.
+* __❗FALLIDO:__ No registra un Service Worker que controle la página y `start_url.`
+* __❗FALLIDO:__ El manifiesto de la aplicación web no cumple con los requisitos de instalación.
+* __❗FALLIDO:__ No está configurado para una pantalla de inicio personalizada.
+* __❗FALLIDO:__ No establece un color de tema de la barra de direcciones.
 
 ¡Saltemos y comencemos a solucionar algunos de estos problemas!
 
@@ -155,20 +162,20 @@ Al final de esta sección, nuestra aplicación meteorológica pasará las siguie
 * No está configurado para una pantalla de inicio personalizada.
 * No establece un color de tema de la barra de direcciones.
 
-### Crear el manifiesto de la aplicación web.
+### Crear el manifiesto de la aplicación web
 
-[web app manifest](/web/fundamentals/web-app-manifest) es un archivo JSON simple que le brinda a usted, el desarrollador, la capacidad de controlar cómo su aplicación se muestra al usuario.
+El [manifiesto de la aplicación web](/web/fundamentals/web-app-manifest) es un archivo JSON simple que le ofrece a usted, el desarrollador, la capacidad de controlar cómo su aplicación se muestra al usuario.
 
 Usando el manifiesto de la aplicación web, su aplicación web puede:
 
-* Indique al navegador que desea que se abra su aplicación en una ventana independiente ( `display` ).
-* Defina qué página se abre cuando la aplicación se inicia por primera vez ( `start_url` ).
-* Defina cómo debería ser la aplicación en el dock o el `short_name` aplicación ( `short_name` , `icons` ).
-* Crear una pantalla de `name` ( `name` , `icons` , `colors` ).
-* Indique al navegador que abra la ventana en modo horizontal o retrato ( `orientation` ).
-* Y [plenty more](https://developer.mozilla.org/en-US/docs/Web/Manifest#Members) .
+* Indique al navegador que desea que se abra su aplicación en una ventana independiente (`display`).
+* Defina qué página se abre cuando la aplicación se inicia por primera vez (`start_url`).
+* Defina cómo debería verse la aplicación en el dock o el app launcher (`short_name` , `icons`).
+* Crear una pantalla de inicio de aplicación (`name` , `icons` , `colors`).
+* Indique al navegador que abra la ventana en modo horizontal o vertical (`orientation`).
+* Y [mucho más](https://developer.mozilla.org/en-US/docs/Web/Manifest#Members) .
 
-Cree un archivo llamado `public/manifest.json` en su proyecto y copie / pegue los siguientes contenidos:
+Cree un archivo llamado `public/manifest.json` en su proyecto y copie/pegue los siguientes contenidos:
 
 `public/manifest.json`
 
@@ -208,9 +215,9 @@ Cree un archivo llamado `public/manifest.json` en su proyecto y copie / pegue lo
 }
 ```
 
-El manifiesto admite una serie de iconos, destinados a diferentes tamaños de pantalla. Para este laboratorio de código, hemos incluido algunos otros ya que los necesitábamos para nuestra integración con iOS.
+El manifiesto admite una serie de iconos, destinados a diferentes tamaños de pantalla. Para este codelab, hemos incluido algunos otros ya que los necesitábamos para nuestra integración con iOS.
 
-Note: para ser instalable, Chrome requiere que proporcione al menos un icono de 192x192px y un icono de 512x512px. Pero también puede proporcionar otros tamaños. Chrome utiliza el icono más cercano a 48dp, por ejemplo, 96px en un dispositivo 2x o 144px para un dispositivo 3x.
+Nota: Para ser instalable, Chrome requiere que proporcione al menos un icono de 192x192px y un icono de 512x512px. Pero también puede proporcionar otros tamaños. Chrome utiliza el icono más cercano a 48dp, por ejemplo, 96px en un dispositivo 2x o 144px para un dispositivo 3x.
 
 ### Añadir un enlace al manifiesto de la aplicación web
 
@@ -223,7 +230,7 @@ A continuación, debemos informarle al navegador acerca de nuestro manifiesto ag
 <link rel="manifest" href="/manifest.json">
 ```
 
-#### DevTools Desvío
+#### DevTools, un pequeño desvío
 
 DevTools proporciona una manera rápida y fácil de revisar su archivo `manifest.json` . Abra el panel __Manifest__ en el panel __Aplication__. Si ha agregado la información del manifiesto correctamente, podrá verla analizada y mostrada en un formato fácil de usar en este panel.
 
@@ -231,7 +238,7 @@ DevTools proporciona una manera rápida y fácil de revisar su archivo `manifest
 
 ### Añadir meta etiquetas e íconos de iOS
 
-Safari en iOS no admite el manifiesto de aplicación web ( [yet](https://webkit.org/status/#specification-web-app-manifest) ), por lo que deberá agregar [traditional `meta` tags](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) a `<head>` de su archivo `index.html` :
+Safari en iOS no admite el manifiesto de aplicación web ([aún](https://webkit.org/status/#specification-web-app-manifest)), por lo que deberá agregar [tags `meta` tradicionales](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) en la etiqueda `<head>` de su archivo `index.html` :
 
 #### [public/index.html](https://github.com/googlecodelabs/your-first-pwapp/blob/master/public/index.html#L31)
 
@@ -243,13 +250,13 @@ Safari en iOS no admite el manifiesto de aplicación web ( [yet](https://webkit.
 <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
 ```
 
-Bono ### : ### fáciles de Faro
+### Bono: Correccionés fáciles con Loghthouse
 
-Nuestra auditoría de Lighthouse mencionó algunas otras cosas que son bastante fáciles de arreglar, así que cuidémoslas mientras estamos aquí.
+Nuestra auditoría de Lighthouse mencionó algunas otras cosas que son bastante fáciles de arreglar, así que solucionémoslas mientras estamos aquí.
 
 #### Establecer la descripción meta
 
-Bajo la auditoría de SEO, Lighthouse anotó que nuestras descripciones de &quot; [Document does not have a meta description.](/web/tools/lighthouse/audits/description) &quot; se pueden mostrar en los resultados de búsqueda de Google. Las descripciones únicas y de alta calidad pueden hacer que sus resultados sean más relevantes para los usuarios de búsqueda y pueden aumentar su tráfico de búsqueda.
+Bajo la auditoría de SEO, Lighthouse anotó que nuestras "[Documento no tiene una meta descripción](/web/tools/lighthouse/audits/description)". Las descripciones se pueden mostrar en los resultados de búsqueda de Google. Las descripciones únicas y de alta calidad pueden hacer que sus resultados sean más relevantes para los usuarios de búsqueda y pueden aumentar el tráfico que proviene de las búsquedas.
 
 Para agregar una descripción, agregue la siguiente etiqueta `meta` a `<head>` de su documento:
 
@@ -262,7 +269,7 @@ Para agregar una descripción, agregue la siguiente etiqueta `meta` a `<head>` d
 
 #### Establecer el color del tema de la barra de direcciones
 
-En la auditoría de PWA, Lighthouse observó nuestra aplicación &quot; [Does not set an address-bar theme color](/web/tools/lighthouse/audits/address-bar) &quot;. El hecho de que la barra de direcciones del navegador coincida con los colores de su marca proporciona una experiencia de usuario más envolvente.
+En la auditoría de PWA, Lighthouse observó nuestra aplicación "[No establece un color de tema de la barra de direcciones](/web/tools/lighthouse/audits/address-bar)". El hecho de que la barra de direcciones del navegador coincida con los colores de su marca proporciona una experiencia de usuario más envolvente.
 
 Para establecer el color del tema en el móvil, agregue la siguiente etiqueta `meta` a `<head>` de su documento:
 
@@ -273,46 +280,46 @@ Para establecer el color del tema en el móvil, agregue la siguiente etiqueta `m
 <meta name="theme-color" content="#2F3BA2" />
 ```
 
-### Verificar cambios con el faro
+### Verificar los cambios con Lighthouse
 
-Ejecute Lighthouse nuevamente (haciendo clic en el signo + en la esquina superior izquierda del panel Auditorías) y verifique sus cambios.
+Ejecute Lighthouse nuevamente (si no ha cerrado el DeveloperTools, lo puede hacer haciendo clic en el signo + en la esquina superior izquierda del panel Auditorías) y verifique sus cambios.
 
-__Esa Audit__
+__Auditoría SEO__
 
 * __✅ PASADO:__ El documento tiene una meta descripción.
 
 __Auditoría de aplicación web progresiva__
 
-* __❗FRACASADO:__ La página actual no responde con un 200 cuando está desconectado.
-* __❗FRACASADO:__ `start_url` no responde con un 200 cuando está desconectado.
-* __❗FRACASADO:__ No registra un trabajador de servicio que controla la página y `start_url.`
+* __❗FALLIDO:__ La página actual no responde con un 200 cuando está desconectado.
+* __❗FALLIDO:__ `start_url` no responde con un 200 cuando está desconectado.
+* __❗FALLIDO:__ No registra un service worker que controla la página y `start_url.`
 * __✅ PASADO:__ El manifiesto de la aplicación web cumple con los requisitos de instalación.
 * __✅ PASADO:__ Configurado para una pantalla de inicio personalizada.
 * __✅ PASADO:__ Establece un color de tema de la barra de direcciones.
 
-## Proporciona una experiencia offline básica
+## Proporcione una experiencia offline básica
 
-Los usuarios esperan que las aplicaciones instaladas siempre tengan una experiencia de referencia si están fuera de línea. Por eso es fundamental que las aplicaciones web instalables nunca muestren el dinosaurio sin conexión de Chrome. La experiencia sin conexión puede abarcar desde una página sin conexión simple hasta una experiencia de solo lectura con datos almacenados previamente en caché, hasta una experiencia sin conexión totalmente funcional que se sincroniza automáticamente cuando se restaura la conexión de red.
+Los usuarios esperan que las aplicaciones instaladas siempre tengan una experiencia mínima si están offline. Por eso es fundamental que las aplicaciones web instalables nunca muestren el dinosaurio sin conexión de Chrome. La experiencia sin conexión puede abarcar desde una página sin conexión simple hasta una experiencia de solo lectura con datos almacenados previamente en caché, hasta una experiencia sin conexión totalmente funcional que se sincroniza automáticamente cuando se restaura la conexión de red.
 
-En esta sección, agregaremos una página sin conexión simple a nuestra aplicación de clima. Si el usuario intenta cargar la aplicación mientras está fuera de línea, mostrará nuestra página personalizada, en lugar de la página sin conexión típica que muestra el navegador. Al final de esta sección, nuestra aplicación meteorológica pasará las siguientes auditorías:
+En esta sección, agregaremos una página sin conexión simple a nuestra aplicación de clima. Si el usuario intenta cargar la aplicación mientras está desconectado, mostrará nuestra página personalizada, en lugar de la página sin conexión típica que muestra el navegador. Al final de esta sección, nuestra aplicación meteorológica pasará las siguientes auditorías:
 
 * La página actual no responde con un 200 cuando está desconectado.
 * `start_url` no responde con un 200 cuando está desconectado.
-* No registra un trabajador de servicio que controla la página y `start_url.`
+* No registra un Service Worker que controle la página y `start_url.`
 
 En la siguiente sección, reemplazaremos nuestra página sin conexión personalizada con una experiencia sin conexión completa. Esto mejorará la experiencia fuera de línea, pero lo que es más importante, mejorará significativamente nuestro rendimiento, ya que la mayoría de nuestros activos (HTML, CSS y JavaScript) se almacenarán y servirán localmente, eliminando la red como un posible cuello de botella.
 
-### Servicio de trabajadores al rescate
+### Service workers al rescate
 
-Si no está familiarizado con los trabajadores de servicio, puede obtener una comprensión básica leyendo [Introduction To Service Workers](/web/fundamentals/primers/service-worker/) sobre lo que pueden hacer, cómo funciona su ciclo de vida y más. Una vez que haya completado este laboratorio de código, asegúrese de revisar [Debugging Service Workers code lab](http://goo.gl/jhXCBy) para obtener una [Debugging Service Workers code lab](http://goo.gl/jhXCBy) más detallada de cómo trabajar con los trabajadores de servicio.
+Si no está familiarizado con los service workers, puede obtener una comprensión básica leyendo [Introducción a Service Workers](/web/fundamentals/primers/service-worker/) sobre lo que pueden hacer, cómo funciona su ciclo de vida y más. Una vez que haya completado este laboratorio de código, asegúrese de revisar [Debugging Service Workers code lab](http://goo.gl/jhXCBy) para obtener una más detallada visión de cómo trabajar con los service workers.
 
-Las funciones proporcionadas a través de los trabajadores del servicio se deben considerar una mejora progresiva y se deben agregar solo si el navegador las admite. Por ejemplo, con los trabajadores de servicios puede almacenar en caché [app shell](/web/fundamentals/architecture/app-shell) y los datos de su aplicación, de modo que esté disponible incluso cuando la red no lo esté. Cuando los trabajadores del servicio no son compatibles, no se llama al código sin conexión y el usuario obtiene una experiencia básica. El uso de la detección de características para proporcionar mejoras progresivas tiene poca sobrecarga y no se interrumpirá en los navegadores antiguos que no son compatibles con esa característica.
+Las funciones proporcionadas a través de los service workers se deben considerar una mejora progresiva y se deben agregar solo si el navegador las admite. Por ejemplo, con los service workers puede almacenar en caché [app shell](/web/fundamentals/architecture/app-shell) y los datos de su aplicación, de modo que esté disponible incluso cuando la red no lo esté. Cuando los service workers no son compatibles, no se llama al código sin conexión y el usuario obtiene una experiencia básica. El uso de la detección de características para proporcionar mejoras progresivas tiene poca sobrecarga y no se interrumpirá en los navegadores antiguos que no son compatibles con esa característica.
 
-Warning: la funcionalidad del trabajador de servicio solo está disponible en las páginas a las que se accede a través de HTTPS (http: // localhost y sus equivalentes también funcionarán para facilitar las pruebas).
+Advertencia: La funcionalidad del service worker solo está disponible en las páginas a las que se accede a través de HTTPS (http://localhost y sus equivalentes también funcionarán para facilitar las pruebas).
 
-### Registrar el trabajador de servicio
+### Registrar el service worker
 
-El primer paso es registrar al trabajador del servicio. Agregue el siguiente código a su archivo `index.html` :
+El primer paso es registrar al service worker. Agregue el siguiente código a su archivo `index.html` :
 
 #### [public/index.html](https://github.com/googlecodelabs/your-first-pwapp/blob/master/public/index.html#L206)
 
@@ -328,15 +335,15 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-Este código verifica si la API del trabajador de servicios está disponible y, si lo está, el trabajador de servicios en `/service-worker.js` se registra una vez que la página es [loaded](/web/fundamentals/primers/service-workers/registration) .
+Este código verifica si la API service workers está disponible y, si lo está, el service worker `/service-worker.js` se registra una vez que la página está [cargada](/web/fundamentals/primers/service-workers/registration) .
 
-Tenga en cuenta que el trabajador de servicios se sirve desde el directorio raíz, no desde un directorio `/scripts/` . Esta es la forma más fácil de configurar __ `scope` __ de su trabajador de servicio. El `scope` del trabajador del servicio determina qué archivos controla el trabajador del servicio, es decir, desde qué ruta el trabajador del servicio interceptará las solicitudes. El valor predeterminado de `scope` es la ubicación del archivo de trabajador de servicio y se extiende a todos los directorios a continuación. Entonces, si `service-worker.js` se encuentra en el directorio raíz, el trabajador del servicio controlará las solicitudes de todas las páginas web en este dominio.
+Tenga en cuenta que el service worker se sirve desde el directorio raíz, no desde un directorio `/scripts/`. Esta es la forma más fácil de configurar __`scope`__ de su service worker. El `scope` del service worker determina qué archivos controla el service worker, es decir, desde qué ruta el service worker interceptará las solicitudes. El valor predeterminado de `scope` es la ubicación del archivo de service worker y se extiende a todos los directorios a continuación. Entonces, si `service-worker.js` se encuentra en el directorio raíz, el service worker controlará las solicitudes de todas las páginas web en este dominio.
 
-### Precache página sin conexión
+### Precache de página sin conexión
 
-Primero, debemos decirle al trabajador de servicio qué almacenar en caché. Ya hemos creado un simple [offline page](https://your-first-pwa.glitch.me/offline.html) ( `public/offline.html` ) que se mostrará cada vez que no haya conexión de red.
+Primero, debemos decirle al service worker qué almacenar en caché. Ya hemos creado una simple [página offline](https://your-first-pwa.glitch.me/offline.html) (`public/offline.html`) que se mostrará cada vez que no haya conexión de red.
 
-En su `service-worker.js` , agregue `'/offline.html',` a la matriz de `FILES_TO_CACHE` , el resultado final debería verse así:
+En su `service-worker.js` , agregue `'/offline.html',` aa array `FILES_TO_CACHE`, el resultado final debería verse así:
 
 #### [public/service-worker.js](https://github.com/googlecodelabs/your-first-pwapp/blob/master/public/service-worker.js#L23)
 
@@ -347,7 +354,7 @@ const FILES_TO_CACHE = [
 ];
 ```
 
-A continuación, debemos actualizar el evento `install` para indicar al trabajador de servicios que `install` en antememoria la página sin conexión:
+A continuación, debemos actualizar el evento `install` para indicar al service worker haga una pre-cache de la página sin conexión:
 
 #### [public/service-worker.js](https://github.com/googlecodelabs/your-first-pwapp/blob/master/public/service-worker.js#L29)
 
@@ -361,31 +368,31 @@ evt.waitUntil(
 );
 ```
 
-Note: los eventos y el ciclo de vida del trabajador de servicio se tratan en la siguiente sección.
+Nota: Los eventos y el ciclo de vida del service worker se tratan en la siguiente sección.
 
-Nuestro evento `install` ahora abre el caché con `caches.open()` y proporciona un nombre de caché. Proporcionar un nombre de caché nos permite la versión de archivos, o datos separados de los recursos almacenados en caché para que podamos actualizar fácilmente uno pero no afecte al otro.
+Nuestro evento `install` ahora abre la caché con `caches.open()` y proporciona un nombre de caché. Proporcionar un nombre de caché nos permite versionar los archivos, o datos separados de los recursos almacenados en caché para que podamos actualizar fácilmente uno pero no afecte al otro.
 
-Una vez que el caché está abierto, podemos llamar a `cache.addAll()` , que toma una lista de URL, las obtiene del servidor y agrega la respuesta al caché. Tenga en cuenta que `cache.addAll()` rechazará si falla alguna de las solicitudes individuales. Eso significa que tiene la garantía de que, si el paso de instalación se realiza correctamente, su caché estará en un estado consistente. Pero, si falla por alguna razón, lo intentará de nuevo automáticamente la próxima vez que se inicie el trabajador de servicio.
+Una vez que la caché está abierto, podemos llamar a `cache.addAll()`, que toma una lista de URLs, las obtiene del servidor y agrega la respuesta al caché. Tenga en cuenta que `cache.addAll()` rechazará si falla alguna de las solicitudes individuales. Eso significa que tiene la garantía de que, si el paso de instalación se realiza correctamente, su caché estará en un estado consistente. Pero, si falla por alguna razón, lo intentará de nuevo automáticamente la próxima vez que se inicie el service worker.
 
-#### DevTools Desvío
+#### DevTools, un pequeño desvío
 
-Veamos cómo puede usar DevTools para comprender y depurar a los trabajadores de servicios. Antes de volver a cargar su página, abra DevTools, vaya al panel __Service Workers__ en el panel __Aplication__. Debe tener un aspecto como este:
+Veamos cómo puede usar DevTools para comprender y depurar a los service workers. Antes de volver a cargar su página, abra DevTools, vaya al panel __Service Workers__ en el panel __Aplication__. Debe tener un aspecto como este:
 
 ![b3aa37b67863fd03.png](img/b3aa37b67863fd03.png)
 
-Cuando ve una página en blanco como esta, significa que la página actualmente abierta no tiene ningún trabajador de servicio registrado.
+Cuando ve una página en blanco como esta, significa que la página actualmente abierta no tiene ningún service worker registrado.
 
 Ahora, recarga tu página. El panel Trabajadores de servicio ahora debería tener este aspecto:
 
 ![69808e4bf3aee41b.png](img/69808e4bf3aee41b.png)
 
-Cuando vea información como esta, significa que la página tiene un trabajador de servicio en ejecución.
+Cuando vea información como esta, significa que la página tiene un service worker en ejecución.
 
-Junto a la etiqueta de estado, hay un número (*34251* en este caso), vigile ese número mientras trabaja con los trabajadores de servicio. Es una manera fácil de saber si su trabajador de servicio ha sido actualizado.
+Junto a la etiqueta de estado, hay un número (*34251* en este caso), vigile ese número mientras trabaja con los trabajadores de servicio. Es una manera fácil de saber si su service worker ha sido actualizado.
 
 ### Limpieza de páginas sin conexión antiguas
 
-Usaremos el evento `activate` para limpiar los datos antiguos en nuestro caché. Este código garantiza que su trabajador de servicio actualice su caché cada vez que cambie alguno de los archivos de shell de la aplicación. Para que esto funcione, necesitaría incrementar la variable `CACHE_NAME` en la parte superior de su archivo de trabajador de servicio.
+Usaremos el evento `activate` para limpiar los datos antiguos en nuestro caché. Este código garantiza que su service worker actualice su caché cada vez que cambie alguno de los archivos de shell de la aplicación. Para que esto funcione, necesitaría incrementar la variable `CACHE_NAME` en la parte superior de su archivo de service worker.
 
 Agregue el siguiente código a su evento `activate` :
 
@@ -405,17 +412,17 @@ evt.waitUntil(
 );
 ```
 
-#### DevTools Desvío
+#### DevTools, un pequeño desvío
 
-Con el panel Trabajadores de servicio abierto, actualice la página, verá el nuevo trabajador de servicio instalado y el incremento del número de estado.
+Con el panel Trabajadores de servicio abierto, actualice la página, verá el nuevo service worker instalado y el incremento del número de estado.
 
 ![1db827d76bc0b359.png](img/1db827d76bc0b359.png)
 
-El trabajador del servicio actualizado toma el control inmediatamente porque nuestro evento `install` finaliza con `self.skipWaiting()` y el evento `activate` finaliza con `self.clients.claim()` . Sin esos, el trabajador de servicio anterior continuaría controlando la página siempre que haya una pestaña abierta en la página.
+El service worker actualizado toma el control inmediatamente porque nuestro evento `install` finaliza con `self.skipWaiting()` y el evento `activate` finaliza con `self.clients.claim()` . Sin esos, el service worker anterior continuaría controlando la página siempre que haya una pestaña abierta en la página.
 
 ### solicitudes de red fallidas
 
-Y finalmente, necesitamos manejar los eventos de `fetch` . Vamos a utilizar un [network, falling back to cache strategy](/web/fundamentals/instant-and-offline/offline-cookbook/#network-falling-back-to-cache) . El trabajador del servicio primero intentará recuperar el recurso de la red, si eso falla, devolverá la página fuera de línea del caché.
+Y finalmente, necesitamos manejar los eventos de `fetch` . Vamos a utilizar un [network, falling back to cache strategy](/web/fundamentals/instant-and-offline/offline-cookbook/#network-falling-back-to-cache) . El service worker primero intentará recuperar el recurso de la red, si eso falla, devolverá la página fuera de línea lal caché.
 
 ![6302ad4ba8460944.png](img/6302ad4ba8460944.png)
 
@@ -438,13 +445,13 @@ evt.respondWith(
 );
 ```
 
-El controlador `fetch` solo necesita manejar las navegaciones de la página, por lo que otras solicitudes pueden ser eliminadas del controlador y serán tratadas normalmente por el navegador. Pero, si la solicitud `.mode` es `navigate` , use `fetch` para intentar obtener el elemento de la red. Si falla, el manejador de `catch` abre el caché con `caches.open(CACHE_NAME)` y usa `cache.match('offline.html')` para obtener la página sin conexión de predefinido. El resultado se devuelve al navegador mediante `evt.respondWith()` .
+El controlador `fetch` solo necesita manejar las navegaciones de la página, por lo que otras solicitudes pueden ser eliminadas del controlador y serán tratadas normalmente por el navegador. Pero, si la solicitud `.mode` es `navigate` , use `fetch` para intentar obtener el elemento de la red. Si falla, el manejador de `catch` abrelal caché con `caches.open(CACHE_NAME)` y usa `cache.match('offline.html')` para obtener la página sin conexión de predefinido. El resultado se devuelve al navegador mediante `evt.respondWith()` .
 
 Key Point: envolver la llamada `fetch` en [`evt.respondWith()`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith) evita el manejo de recuperación predeterminado del navegador y le dice al navegador que queremos manejar la respuesta por nosotros mismos. Si no llama a `evt.respondWith()` dentro de un controlador de `fetch` , solo obtendrá el comportamiento de red predeterminado.
 
-#### DevTools Desvío
+#### DevTools, un pequeño desvío
 
-Revisemos para asegurarnos de que todo funcione como lo esperamos. Con el panel Trabajadores de servicio abierto, actualice la página, verá el nuevo trabajador de servicio instalado y el incremento del número de estado.
+Revisemos para asegurarnos de que todo funcione como lo esperamos. Con el panel Trabajadores de servicio abierto, actualice la página, verá el nuevo service worker instalado y el incremento del número de estado.
 
 También podemos verificar qué ha sido almacenado en caché. Vaya al panel __Cache Storage__ en el panel __Aplicación__ de DevTools. Haga clic con el botón derecho en __Caché de almacenamiento__, seleccione __Refrescar cachés__, expanda la sección y debería ver el nombre de su caché estático en el lado izquierdo. Al hacer clic en el nombre de la memoria caché se muestran todos los archivos que están en caché.
 
@@ -458,7 +465,7 @@ Recarga tu página y ... ¡funciona! ¡Obtenemos __our__ panda desconectado, en 
 
 ### Consejos para los trabajadores de servicio de prueba
 
-Depurar a los trabajadores del servicio puede ser un desafío, y cuando se trata de almacenamiento en caché, las cosas pueden convertirse en una pesadilla aún más si el caché no se actualiza cuando se espera. Entre el ciclo de vida típico de un trabajador de servicio y un error en su código, puede frustrarse rápidamente. __Pero no .__
+Depurar a los service workers puede ser un desafío, y cuando se trata de almacenamiento en caché, las cosas pueden convertirse en una pesadilla aún más si la caché no se actualiza cuando se espera. Entre el ciclo de vida típico de un service worker y un error en su código, puede frustrarse rápidamente. __Pero no .__
 
 #### Usar DevTools
 
@@ -467,21 +474,21 @@ En el panel Trabajadores de servicio del panel de la aplicación, hay algunas ca
 ![c7ac93904f473a91.png](img/c7ac93904f473a91.png)
 
 * __Offline__ - Cuando se marca, simula una experiencia fuera de línea y evita que cualquier solicitud vaya a la red.
-* __Actualización en la recarga__ - Cuando se marque, se obtendrá el trabajador de servicio más reciente, se instalará y se activará de inmediato.
-* __Bypass para red__ - Cuando las solicitudes verificadas pasan por alto al trabajador del servicio y se envían directamente a la red.
+* __Actualización en la recarga__ - Cuando se marque, se obtendrá el service worker más reciente, se instalará y se activará de inmediato.
+* __Bypass para red__ - Cuando las solicitudes verificadas pasan por alto al service worker y se envían directamente a la red.
 
 #### Start Fresh
 
-En algunos casos, es posible que esté cargando datos en caché o que las cosas no se actualicen como espera. Para borrar todos los datos guardados (localStorage, indexedDB data, cached files) y eliminar cualquier trabajador de servicio, use el panel Borrar almacenamiento en la pestaña Aplicación. Alternativamente, también puede trabajar en una ventana de incógnito.
+En algunos casos, es posible que esté cargando datos en caché o que las cosas no se actualicen como espera. Para borrar todos los datos guardados (localStorage, indexedDB data, cached files) y eliminar cualquier service worker, use el panel Borrar almacenamiento en la pestaña Aplicación. Alternativamente, también puede trabajar en una ventana de incógnito.
 
 ![398bbcd285e2c5dd.png](img/398bbcd285e2c5dd.png)
 
 Consejos adicionales:
 
-* Una vez que un trabajador de servicio no ha sido registrado, puede permanecer en la lista hasta que se cierre la ventana que contiene el navegador.
-* Si hay varias ventanas abiertas para su aplicación, un nuevo trabajador de servicio no entrará en vigencia hasta que todas las ventanas hayan sido recargadas y actualizadas al último trabajador de servicio.
-* ¡Desregistrar un trabajador de servicio no borra el caché!
-* Si existe un trabajador de servicio y un nuevo trabajador de servicio está registrado, el nuevo trabajador de servicio no tomará el control hasta que la página se [take immediate control](/web/fundamentals/primers/service-workers/lifecycle#clientsclaim) cargar, a menos que sea [take immediate control](/web/fundamentals/primers/service-workers/lifecycle#clientsclaim) .
+* Una vez que un service worker no ha sido registrado, puede permanecer en la lista hasta que se cierre la ventana que contiene el navegador.
+* Si hay varias ventanas abiertas para su aplicación, un nuevo service worker no entrará en vigencia hasta que todas las ventanas hayan sido recargadas y actualizadas al último service worker.
+* ¡Desregistrar un service worker no borra la caché!
+* Si existe un service worker y un nuevo service worker está registrado, el nuevo service worker no tomará el control hasta que la página se [take immediate control](/web/fundamentals/primers/service-workers/lifecycle#clientsclaim) cargar, a menos que sea [take immediate control](/web/fundamentals/primers/service-workers/lifecycle#clientsclaim) .
 
 ### Verificar cambios con el faro
 
@@ -495,7 +502,7 @@ __Auditoría de aplicación web progresiva__
 
 * __✅ PASADO:__ La página actual responde con un 200 cuando está fuera de línea.
 * __✅ PASADO:__ `start_url` responde con un 200 cuando está desconectado.
-* __✅ PASADO:__ Registra un trabajador de servicio que controla la página y `start_url.`
+* __✅ PASADO:__ Registra un service worker que controla la página y `start_url.`
 * __✅ PASADO:__ El manifiesto de la aplicación web cumple con los requisitos de instalación.
 * __✅ PASADO:__ Configurado para una pantalla de inicio personalizada.
 * __✅ PASADO:__ Establece un color de tema de la barra de direcciones.
@@ -504,17 +511,17 @@ __Auditoría de aplicación web progresiva__
 
 Tómese un momento, ponga su teléfono en modo avión e intente ejecutar algunas de sus aplicaciones favoritas. En casi todos los casos, proporcionan una experiencia fuera de línea bastante robusta. Los usuarios esperan que la experiencia robusta de sus aplicaciones. Y la web no debería ser diferente. Las aplicaciones web progresivas deben diseñarse con fuera de línea como escenario central.
 
-Key Point: Diseñar para fuera de línea primero puede mejorar drásticamente el rendimiento de su aplicación web al reducir el número de solicitudes de red realizadas por su aplicación, en lugar de eso, los recursos pueden ser predefinidos y servidos directamente desde el caché local. ¡Incluso con la conexión de red más rápida, el servicio desde el caché local será más rápido!
+Key Point: Diseñar para fuera de línea primero puede mejorar drásticamente el rendimiento de su aplicación web al reducir el número de solicitudes de red realizadas por su aplicación, en lugar de eso, los recursos pueden ser predefinidos y servidos directamente desde la caché local. ¡Incluso con la conexión de red más rápida, el servicio desde la caché local será más rápido!
 
 ### Servicio de ciclo de vida del trabajador
 
-El ciclo de vida del trabajador del servicio es la parte más complicada. Si no sabe qué es lo que está tratando de hacer y cuáles son los beneficios, puede sentir que está luchando contra usted. Pero una vez que sepa cómo funciona, puede ofrecer actualizaciones integrales y discretas a los usuarios, mezclando lo mejor de la web y los patrones nativos.
+El ciclo de vida del service worker es la parte más complicada. Si no sabe qué es lo que está tratando de hacer y cuáles son los beneficios, puede sentir que está luchando contra usted. Pero una vez que sepa cómo funciona, puede ofrecer actualizaciones integrales y discretas a los usuarios, mezclando lo mejor de la web y los patrones nativos.
 
-Key Point: Este código de código solo cubre los conceptos básicos del ciclo de vida del trabajador de servicio. Para profundizar más, consulte [The Service Worker Lifecycle](/web/fundamentals/primers/service-workers/lifecycle) artículo sobre WebFundamentals.
+Key Point: Este código de código solo cubre los conceptos básicos del ciclo de vida del service worker. Para profundizar más, consulte [The Service Worker Lifecycle](/web/fundamentals/primers/service-workers/lifecycle) artículo sobre WebFundamentals.
 
 #### `install`
 
-El primer evento que recibe un trabajador de servicio es `install` . Se activa tan pronto como el trabajador se ejecuta, y solo se llama una vez por trabajador del servicio. __Si modifica la secuencia de comandos de su trabajador de servicio, el navegador lo considerará un trabajador de servicio diferente__, y obtendrá su propio evento `install` .
+El primer evento que recibe un service worker es `install` . Se activa tan pronto como el trabajador se ejecuta, y solo se llama una vez por service worker. __Si modifica la secuencia de comandos de su service worker, el navegador lo considerará un service worker diferente__, y obtendrá su propio evento `install` .
 
 ![72ed77b1720512da.png](img/72ed77b1720512da.png)
 
@@ -522,15 +529,15 @@ Normalmente, el evento `install` se usa para almacenar en caché todo lo que nec
 
 #### `activate`
 
-El trabajador de servicio recibirá un evento `activate` cada vez que se inicie. El objetivo principal del evento `activate` es configurar el comportamiento del trabajador del servicio, limpiar los recursos que quedan de las ejecuciones anteriores (por ejemplo, cachés antiguos) y preparar al trabajador del servicio para manejar las solicitudes de red (por ejemplo, el evento `fetch` que se describe a continuación).
+El service worker recibirá un evento `activate` cada vez que se inicie. El objetivo principal del evento `activate` es configurar el comportamiento del service worker, limpiar los recursos que quedan de las ejecuciones anteriores (por ejemplo, cachés antiguos) y preparar al service worker para manejar las solicitudes de red (por ejemplo, el evento `fetch` que se describe a continuación).
 
 #### `fetch`
 
-El evento de recuperación permite que el trabajador del servicio intercepte cualquier solicitud de red y maneje las solicitudes. Puede ir a la red para obtener el recurso, puede extraerlo de su propio caché, generar una respuesta personalizada o cualquier número de opciones diferentes. Echa un vistazo a [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) para ver las diferentes estrategias que puedes usar.
+El evento de recuperación permite que el service worker intercepte cualquier solicitud de red y maneje las solicitudes. Puede ir a la red para obtener el recurso, puede extraerlo de su propio caché, generar una respuesta personalizada o cualquier número de opciones diferentes. Echa un vistazo a [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) para ver las diferentes estrategias que puedes usar.
 
-#### Actualizando un trabajador de servicio
+#### Actualizando un service worker
 
-El navegador comprueba si hay una nueva versión de su trabajador de servicio en cada carga de página. Si encuentra una nueva versión, la nueva versión se descarga e instala en segundo plano, pero no está activada. Se encuentra en estado de espera, hasta que ya no queda ninguna página abierta que utilice el antiguo trabajador de servicio. Una vez que se cierran todas las ventanas que usan el antiguo trabajador de servicio, el nuevo trabajador de servicio se activa y puede tomar el control. Consulte la sección [Updating the service worker](/web/fundamentals/primers/service-workers/lifecycle#updates) del doc. Del ciclo de vida del trabajador de servicio para obtener más detalles.
+El navegador comprueba si hay una nueva versión de su service worker en cada carga de página. Si encuentra una nueva versión, la nueva versión se descarga e instala en segundo plano, pero no está activada. Se encuentra en estado de espera, hasta que ya no queda ninguna página abierta que utilice el antiguo service worker. Una vez que se cierran todas las ventanas que usan el antiguo service worker, el nuevo service worker se activa y puede tomar el control. Consulte la sección [Updating the service worker](/web/fundamentals/primers/service-workers/lifecycle#updates) del doc. Del ciclo de vida del service worker para obtener más detalles.
 
 ### Elegir la estrategia de almacenamiento en caché correcta
 
@@ -540,7 +547,7 @@ Elegir el [caching strategy](/web/fundamentals/instant-and-offline/offline-cookb
 
 Unir previamente a sus recursos es un concepto similar a lo que sucede cuando un usuario instala una aplicación de escritorio o móvil. Los recursos clave necesarios para que la aplicación se ejecute se instalan o se almacenan en la memoria caché del dispositivo para que puedan cargarse más tarde, ya sea que haya una conexión de red o no.
 
-Para nuestra aplicación, almacenaremos previamente todos nuestros recursos estáticos cuando nuestro trabajador de servicio esté instalado, de modo que todo lo que necesitamos para ejecutar nuestra aplicación se almacene en el dispositivo del usuario. Para garantizar que nuestra aplicación se cargue a la velocidad de la luz, usaremos la estrategia [cache-first](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) ; en lugar de ir a la red para obtener los recursos, se extraen de la caché local; Sólo si no está disponible, intentaremos obtenerlo de la red.
+Para nuestra aplicación, almacenaremos previamente todos nuestros recursos estáticos cuando nuestro service worker esté instalado, de modo que todo lo que necesitamos para ejecutar nuestra aplicación se almacene en el dispositivo del usuario. Para garantizar que nuestra aplicación se cargue a la velocidad de la luz, usaremos la estrategia [cache-first](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) ; en lugar de ir a la red para obtener los recursos, se extraen de la caché local; Sólo si no está disponible, intentaremos obtenerlo de la red.
 
 ![44860840e2090bd8.png](img/44860840e2090bd8.png)
 
@@ -560,7 +567,7 @@ Para nuestra aplicación, esto proporciona una mejor experiencia que la red, rec
 
 ### Actualizar la lógica de la aplicación
 
-Como se mencionó anteriormente, la aplicación debe iniciar dos solicitudes asíncronas, una para el caché y otra para la red. La aplicación utiliza el objeto `caches` disponible en `window` para acceder a la memoria caché y recuperar los últimos datos. Este es un excelente ejemplo de mejora progresiva ya que el objeto `caches` puede no estar disponible en todos los navegadores, y si no es así, la solicitud de red debería funcionar.
+Como se mencionó anteriormente, la aplicación debe iniciar dos solicitudes asíncronas, una para la caché y otra para la red. La aplicación utiliza el objeto `caches` disponible a `window` para acceder a la memoria caché y recuperar los últimos datos. Este es un excelente ejemplo de mejora progresiva ya que el objeto `caches` puede no estar disponible en todos los navegadores, y si no es así, la solicitud de red debería funcionar.
 
 Actualice la función `getForecastFromCache()` para verificar si el objeto `caches` está disponible en el objeto global `window` y, si lo está, solicite los datos de la memoria caché.
 
@@ -597,7 +604,7 @@ getForecastFromCache(location.geo)
     });
 ```
 
-Nuestra aplicación meteorológica ahora realiza dos solicitudes asíncronas de datos, una desde el caché y otra a través de un `fetch` . Si hay datos en el caché, serán devueltos y procesados extremadamente rápidamente (decenas de milisegundos). Luego, cuando responda `fetch` , la tarjeta se actualizará con los datos más recientes directamente de la API meteorológica.
+Nuestra aplicación meteorológica ahora realiza dos solicitudes asíncronas de datos, una desde la caché y otra a través de un `fetch` . Si hay datos en la caché, serán devueltos y procesados extremadamente rápidamente (decenas de milisegundos). Luego, cuando responda `fetch` , la tarjeta se actualizará con los datos más recientes directamente de la API meteorológica.
 
 Observe cómo la solicitud de caché y la solicitud `fetch` terminan con una llamada para actualizar la tarjeta de pronóstico. ¿Cómo sabe la aplicación si muestra los últimos datos? Esto se maneja en el siguiente código de `renderForecast()` :
 
@@ -614,7 +621,7 @@ Cada vez que se actualiza una tarjeta, la aplicación almacena la marca de tiemp
 
 ### Pre-caché nuestros recursos de la aplicación
 
-En el trabajador de servicios, agreguemos un `DATA_CACHE_NAME` para poder separar los datos de nuestras aplicaciones del shell de la aplicación. Cuando se actualiza el shell de la aplicación y se eliminan los cachés más antiguos, nuestros datos permanecerán intactos, listos para una carga súper rápida. Tenga en cuenta que si su formato de datos cambia en el futuro, necesitará una forma de manejar eso y garantizar que el shell y el contenido de la aplicación estén sincronizados.
+En el service workers, agreguemos un `DATA_CACHE_NAME` para poder separar los datos de nuestras aplicaciones del shell de la aplicación. Cuando se actualiza el shell de la aplicación y se eliminan los cachés más antiguos, nuestros datos permanecerán intactos, listos para una carga súper rápida. Tenga en cuenta que si su formato de datos cambia en el futuro, necesitará una forma de manejar eso y garantizar que el shell y el contenido de la aplicación estén sincronizados.
 
 #### [public/service-worker.js](https://github.com/googlecodelabs/your-first-pwapp/blob/master/public/service-worker.js#L21)
 
@@ -626,7 +633,7 @@ const DATA_CACHE_NAME = 'data-cache-v1';
 
 No olvides actualizar también `CACHE_NAME` ; Estaremos cambiando todos nuestros recursos estáticos también.
 
-Para que nuestra aplicación funcione sin conexión, tenemos que almacenar previamente todos los recursos que necesita. Esto también ayudará a nuestro rendimiento. En lugar de tener que obtener todos los recursos de la red, la aplicación podrá cargarlos todos desde el caché local, eliminando la inestabilidad de la red.
+Para que nuestra aplicación funcione sin conexión, tenemos que almacenar previamente todos los recursos que necesita. Esto también ayudará a nuestro rendimiento. En lugar de tener que obtener todos los recursos de la red, la aplicación podrá cargarlos todos desde la caché local, eliminando la inestabilidad de la red.
 
 Actualice la matriz `FILES_TO_CACHE` con la lista de archivos:
 
@@ -662,7 +669,7 @@ const FILES_TO_CACHE = [
 
 Ya que estamos generando manualmente la lista de archivos a la memoria caché, cada vez que actualizamos un archivo, debemos actualizar el `CACHE_NAME` __. Pudimos eliminar `offline.html` de nuestra lista de archivos en caché porque nuestra aplicación ahora cuenta con todos los recursos necesarios para trabajar sin conexión y nunca volverá a mostrar la página sin conexión.
 
-Caution: En esta muestra, realizamos un rol manual de nuestro propio trabajador de servicio. Cada vez que actualizamos alguno de los recursos estáticos, debemos volver a tirar al trabajador del servicio y actualizar el caché, de lo contrario se servirá el contenido anterior. Además, cuando un archivo cambia, la memoria caché completa se invalida y se debe volver a descargar. Eso significa que corregir un simple error de ortografía de un solo carácter invalidará la memoria caché y requerirá que todo se descargue de nuevo, lo que no es exactamente eficiente. [Workbox](/web/tools/workbox/) maneja esto con gracia, al integrarlo en su proceso de compilación, solo se actualizarán los archivos modificados, lo que ahorrará ancho de banda para los usuarios y un mantenimiento más fácil para usted.
+Caution: En esta muestra, realizamos un rol manual de nuestro propio service worker. Cada vez que actualizamos alguno de los recursos estáticos, debemos volver a tirar al service worker y actualizar la caché, de lo contrario se servirá el contenido anterior. Además, cuando un archivo cambia, la memoria caché completa se invalida y se debe volver a descargar. Eso significa que corregir un simple error de ortografía de un solo carácter invalidará la memoria caché y requerirá que todo se descargue de nuevo, lo que no es exactamente eficiente. [Workbox](/web/tools/workbox/) maneja esto con gracia, al integrarlo en su proceso de compilación, solo se actualizarán los archivos modificados, lo que ahorrará ancho de banda para los usuarios y un mantenimiento más fácil para usted.
 
 #### Actualizar el controlador de eventos activar
 
@@ -676,7 +683,7 @@ if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
 
 #### Actualizar el controlador de eventos fetch
 
-Necesitamos modificar el trabajador del servicio para interceptar las solicitudes a la API del tiempo y almacenar sus respuestas en el caché, para que podamos acceder a ellas fácilmente más adelante. En la estrategia obsoleta, mientras que la revalidación, esperamos que la respuesta de la red sea la &quot;fuente de la verdad&quot;, siempre nos proporciona la información más reciente. Si no puede, está bien fallar porque ya hemos recuperado los últimos datos almacenados en caché en nuestra aplicación.
+Necesitamos modificar el service worker para interceptar las solicitudes a la API del tiempo y almacenar sus respuestas en la caché, para que podamos acceder a ellas fácilmente más adelante. En la estrategia obsoleta, mientras que la revalidación, esperamos que la respuesta de la red sea la &quot;fuente de la verdad&quot;, siempre nos proporciona la información más reciente. Si no puede, está bien fallar porque ya hemos recuperado los últimos datos almacenados en caché en nuestra aplicación.
 
 Actualice el `fetch` eventos `fetch` para manejar las solicitudes a la API de datos por separado de otras solicitudes.
 
@@ -714,19 +721,19 @@ evt.respondWith(
 
 El código intercepta la solicitud y verifica si es para un pronóstico del tiempo. Si es así, use `fetch` para realizar la solicitud. Una vez que se devuelve la respuesta, abra la memoria caché, clone la respuesta, almacénela en la memoria caché y devuelva la respuesta al solicitante original.
 
-Necesitamos eliminar la comprobación `evt.request.mode !== 'navigate'` porque queremos que nuestro trabajador de servicio maneje todas las solicitudes (incluidas imágenes, scripts, archivos CSS, etc.), no solo las navegaciones. Si dejamos ese registro, solo se entregará el HTML desde la memoria caché del trabajador de servicio, todo lo demás se solicitará desde la red.
+Necesitamos eliminar la comprobación `evt.request.mode !== 'navigate'` porque queremos que nuestro service worker maneje todas las solicitudes (incluidas imágenes, scripts, archivos CSS, etc.), no solo las navegaciones. Si dejamos ese registro, solo se entregará el HTML desde la memoria caché del service worker, todo lo demás se solicitará desde la red.
 
 ### Pruébalo
 
-La aplicación debe estar completamente fuera de línea funcional ahora. Actualice la página para asegurarse de que tiene instalado el trabajador de servicio más reciente, luego guarde un par de ciudades y presione el botón de actualización en la aplicación para obtener información actualizada sobre el clima.
+La aplicación debe estar completamente fuera de línea funcional ahora. Actualice la página para asegurarse de que tiene instalado el service worker más reciente, luego guarde un par de ciudades y presione el botón de actualización en la aplicación para obtener información actualizada sobre el clima.
 
-Luego vaya al panel __Cache Storage__ en el panel __Aplicación__ de DevTools. Expanda la sección y verá el nombre de su caché estático y el caché de datos en el lado izquierdo. Al abrir el caché de datos se deben mostrar los datos almacenados para cada ciudad.
+Luego vaya al panel __Cache Storage__ en el panel __Aplicación__ de DevTools. Expanda la sección y verá el nombre de su caché estático y la caché de datos en el lado izquierdo. Al abrir la caché de datos se deben mostrar los datos almacenados para cada ciudad.
 
 ![731e91776cb6ef18.png](img/731e91776cb6ef18.png)
 
 Luego, abra DevTools y cambie al panel Trabajadores de servicio, y marque la casilla de verificación Sin conexión, luego intente volver a cargar la página, luego desconecte y vuelva a cargar la página.
 
-Si estás en una red rápida y quiere ver cómo se actualiza datos de previsión del tiempo en una conexión lenta, ajuste el `FORECAST_DELAY` propiedad en `server.js` a `5000` . Todas las solicitudes a la API de pronóstico se retrasarán 5000ms.
+Si estás en una red rápida y quiere ver cómo se actualiza datos de previsión del tiempo en una conexión lenta, ajuste el `FORECAST_DELAY` propiedad a `server.js` a `5000` . Todas las solicitudes a la API de pronóstico se retrasarán 5000ms.
 
 ### Verificar cambios con el faro
 
@@ -740,7 +747,7 @@ __Auditoría de aplicación web progresiva__
 
 * __✅ PASADO:__ La página actual responde con un 200 cuando está fuera de línea.
 * __✅ PASADO:__ `start_url` responde con un 200 cuando está desconectado.
-* __✅ PASADO:__ Registra un trabajador de servicio que controla la página y `start_url.`
+* __✅ PASADO:__ Registra un service worker que controla la página y `start_url.`
 * __✅ PASADO:__ El manifiesto de la aplicación web cumple con los requisitos de instalación.
 * __✅ PASADO:__ Configurado para una pantalla de inicio personalizada.
 * __✅ PASADO:__ Establece un color de tema de la barra de direcciones.
@@ -763,7 +770,7 @@ Para que un usuario pueda instalar su aplicación web progresiva, debe cumplir c
 
 Si ha trabajado con este código, su PWA ya debería cumplir con estos criterios.
 
-Key Point: Para esta sección, habilite la casilla de verificación **Omitir para la red** en el panel **Trabajadores de servicio** del panel **Aplicación** en DevTools. Cuando está marcado, las solicitudes omiten al trabajador del servicio y se envían directamente a la red. Esto simplifica nuestro proceso de desarrollo ya que no tenemos que actualizar nuestro trabajador de servicio mientras trabajamos en esta sección.
+Key Point: Para esta sección, habilite la casilla de verificación **Omitir para la red** en el panel **Trabajadores de servicio** del panel **Aplicación** en DevTools. Cuando está marcado, las solicitudes omiten al service worker y se envían directamente a la red. Esto simplifica nuestro proceso de desarrollo ya que no tenemos que actualizar nuestro service worker mientras trabajamos en esta sección.
 
 ### Agrega install.js a index.html
 
@@ -855,7 +862,7 @@ Luego, necesitaremos actualizar la función `logAppInstalled` , para este códig
 console.log('Weather App was installed.', evt);
 ```
 
-### Actualizar el trabajador de servicio
+### Actualizar el service worker
 
 No olvide actualizar `CACHE_NAME` en su archivo `service-worker.js` , ya que ha realizado cambios en los archivos que ya están en caché. Habilitar la casilla de verificación __Bypass for network__ en el panel Trabajadores de servicio del panel de aplicaciones en DevTools funcionará en el desarrollo, pero no ayudará en el mundo real.
 
@@ -953,7 +960,7 @@ En Mac y Windows, los PWA se deben desinstalar a través de Chrome.
 
 ¡Enhorabuena, ha construido con éxito su primera aplicación web progresiva!
 
-Agregó un manifiesto de aplicación web para permitir que se instalara, y agregó un trabajador de servicio para garantizar que su PWA sea siempre rápida y confiable. Aprendió cómo usar DevTools para auditar una aplicación y cómo puede ayudarlo a mejorar su experiencia de usuario.
+Agregó un manifiesto de aplicación web para permitir que se instalara, y agregó un service worker para garantizar que su PWA sea siempre rápida y confiable. Aprendió cómo usar DevTools para auditar una aplicación y cómo puede ayudarlo a mejorar su experiencia de usuario.
 
 Ahora conoce los pasos clave necesarios para convertir cualquier aplicación web en una aplicación web progresiva.
 
